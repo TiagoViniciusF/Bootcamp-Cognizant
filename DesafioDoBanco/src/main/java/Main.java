@@ -10,6 +10,10 @@ public class Main {
         Conta cc = new ContaCorrente(cliente);
         cc.clienteList = new ArrayList<>();
         cc.depositar(100);
+        cc.imprimirExtrato();
+        cc.sacar(150);
+
+        System.out.println();
 
         Cliente cliente1 = new Cliente();
         cliente1.setNome("Roberta");
@@ -17,14 +21,31 @@ public class Main {
         cc1.depositar(200);
         cc1.imprimirExtrato();
 
+        System.out.println();
+
+
+        Cliente cliente3 = new Cliente();
+        cliente3.setNome("Mariana");
+        Conta cp = new ContaPoupanca(cliente3);
+        cp.depositar(180);
+        cp.imprimirExtrato();
+        cp.transferir(200, cc1);
+
+
+
+        System.out.println();
+
         cc.clienteList.add(cliente.getNome());
         cc.clienteList.add(cliente1.getNome());
-        Conta cp = new ContaPoupanca(cliente);
-        cc.transferir(100,cp);
-        cc.imprimirExtrato();
-        cp.imprimirExtrato();
-
+        System.out.println("Lista Clientes, conta corrente:");
         cc.imprimirListaClientes();
+
+        System.out.println();
+
+        System.out.println("Lista Clientes, conta poupança:");
+        cp.clienteList = new ArrayList<>();
+        cp.clienteList.add(cliente3.getNome());
+        cp.imprimirListaClientes();
 
 
     }

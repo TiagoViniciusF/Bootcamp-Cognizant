@@ -29,7 +29,11 @@ public class Conta {
     }
 
     public void sacar(double valor) {
-        saldo -= valor;
+        if(this.saldo < valor) {
+            System.out.println("Saldo Insufuciente para saque");
+        }else{
+            this.saldo -= valor;
+        }
 
     }
 
@@ -39,8 +43,12 @@ public class Conta {
     }
 
     public void transferir(double valor, Conta contadDestino){
-        this.sacar(valor);
-        contadDestino.depositar(valor);
+        if(this.saldo < valor) {
+            System.out.println("Saldo Insufuciente para transferencia");
+        }else {
+            this.sacar(valor);
+            contadDestino.depositar(valor);
+        }
     }
 
     protected void imprimirExtrato(){
