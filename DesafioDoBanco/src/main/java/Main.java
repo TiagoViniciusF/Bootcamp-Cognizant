@@ -9,7 +9,7 @@ public class Main {
         cliente.setNome("Tiago");
         Conta cc = new ContaCorrente(cliente);
         cc.clienteList = new ArrayList<>();
-        cc.depositar(100);
+        cc.depositar(300);
         cc.imprimirExtrato();
         cc.sacar(150);
 
